@@ -10,16 +10,17 @@ const rabbitmqSettings = {
   authMechanism: ["PLAIN", "AMQPLAIN", "EXTERNAL"],
 };
 
-const rabbitMQconn = connect();
+const rabbitMQchannel = connect();
 
 async function connect() {
   try {
     const conn = await amqp.connect(rabbitmqSettings);
+    const channel = await conn.createChannel();
     console.log("Succesfully connected to RabbitMQ");
-    return conn;
+    return channel;
   } catch (error) {
     throw error;
   }
 }
 
-module.exports = rabbitMQconn;
+module.exports = rabbitMQchannel;

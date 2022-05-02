@@ -1,11 +1,9 @@
-const rabbitMQconn = require("../config/rabbitmqConfig");
+const rabbitMQchannel = require("../config/rabbitmqConfig");
 
 const songsQueue = "songs";
 
 async function enqueueSong(songFile) {
-  rabbitMQconn.then(async (conn) => {
-    const channel = await conn.createChannel();
-
+  rabbitMQchannel.then(async (channel) => {
     await channel.assertQueue(songsQueue);
 
     await channel.sendToQueue(songsQueue, songFile.data);
