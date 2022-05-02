@@ -1,11 +1,14 @@
 const amqp = require("amqplib");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const rabbitmqSettings = {
   protocol: "amqp",
   hostname: "localhost",
   port: 5672,
-  username: "lalu_mq",
-  password: "lalu_mq",
+  username: process.env.MQ_USER,
+  password: process.env.MQ_PASS,
   vhost: "/",
   authMechanism: ["PLAIN", "AMQPLAIN", "EXTERNAL"],
 };
