@@ -4,8 +4,8 @@ const rabbitmqSettings = {
   protocol: "amqp",
   hostname: "localhost",
   port: 5672,
-  username: "lalu_ag",
-  password: "lalu_ag",
+  username: "lalu_mq",
+  password: "lalu_mq",
   vhost: "/",
   authMechanism: ["PLAIN", "AMQPLAIN", "EXTERNAL"],
 };
