@@ -6,7 +6,12 @@ async function enqueueSong(songFile) {
   rabbitMQchannel.then(async (channel) => {
     await channel.assertQueue(songsQueue);
 
-    await channel.sendToQueue(songsQueue, songFile.data);
+    song = {
+      name: songFile.name,
+      data: songFile.data,
+    };
+
+    await channel.sendToQueue(songsQueue, Buffer.from(JSON.stringify(song)));
   });
 }
 

@@ -5,7 +5,7 @@ dotenv.config();
 
 const rabbitmqSettings = {
   protocol: "amqp",
-  hostname: "localhost",
+  hostname: process.env.MQ_HOST,
   port: 5672,
   username: process.env.MQ_USER,
   password: process.env.MQ_PASS,
