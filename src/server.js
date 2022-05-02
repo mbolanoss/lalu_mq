@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const songsRouter = require("./routes/songs");
+const songsRouter = require("./routes/songsRoutes");
 app.use("/songs", songsRouter);
 
 const PORT = 3000;
